@@ -1,0 +1,29 @@
+# Ansible inventory files
+*.ini
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Variable files (sensitive data)
+*.tfvars
+*.tfvars.json
+
+# Override files
+*_override.tf
+*_override.tf.json
+
+# Terraform CLI configs
+.terraformrc
+terraform.rc
+
+# Plans and locks
+*.tfplan
+.terraform.tfstate.lock.info

@@ -1,0 +1,37 @@
+- name: Configure EC2 with nginx
+  hosts: webservers
+  become: yes
+  vars:
+    nginx_docroot: /usr/share/nginx/html
+  tasks:
+    - name: Update dnf packages
+      dnf:
+        name: "*"
+        state: latest
+    - name: Install nginx
+      dnf:
+        name: nginx
+        state: present
+    - name: Gather service facts
+      service_facts:
+    - name: Copy site files
+      synchronize:
+        src: ../site/
+        dest: "{{nginx_docroot}}/"
+        delete: yes
+      notify: Restart nginx
+    - name: Start and enable nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+      when: >
+        (ansible_facts.services['nginx'] is defined) and
+        (ansible_facts.services['nginx'].state == 'stopped' or 
+          ansible_facts.services['nginx'].status == 'disabled')
+
+  handlers:
+    - name: Restart nginx
+      service:
+        name: nginx
+        state: reloaded
