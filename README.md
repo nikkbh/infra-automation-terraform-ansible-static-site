@@ -6,9 +6,20 @@
   <img src="https://unpkg.com/simple-icons@v9/icons/amazonaws.svg" alt="AWS" width="60"/>
 </p>
 
+## Key Highlights
+
+- **Blazing fast provisioning** – End-to-end infrastructure creation and Nginx configuration complete in roughly 60 seconds on a typical AWS environment.
+- **Fully automated** – Single-command workflow: Terraform handles infra, Ansible manages configuration and deployment with no manual intervention.  
+- **Ready-to-serve Nginx** – EC2 comes up with Nginx installed, configured, and serving the static site out of the box.
+- **Scalable & replicable** – The setup is defined as code, making it easy to scale out to more instances or replicate across environments (dev/stage/prod).
+
 ## Overview
 
-This project automates the deployment of a static website on AWS using Terraform and Ansible. Terraform provisions an EC2 instance and related AWS resources, while Ansible configures Nginx on the instance and deploys the static site content. [web:46]
+This project automates the deployment of a static website on AWS using Terraform and Ansible. Terraform provisions an EC2 instance and related AWS resources, while Ansible configures Nginx on the instance and deploys the static site content.
+
+## Cloud Architecture
+<img width="855" height="587" alt="image" src="https://github.com/user-attachments/assets/71432b8a-6e4a-4618-98be-c6d544e3ba06" />
+
 
 ## Tech Stack
 
